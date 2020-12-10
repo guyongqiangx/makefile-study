@@ -1,4 +1,4 @@
-all: main.o foo.o
+simple.exe: main.o foo.o
 	gcc -o simple.exe main.o foo.o
 
 main.o: main.c
