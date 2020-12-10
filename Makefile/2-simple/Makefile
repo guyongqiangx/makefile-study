@@ -1,3 +1,5 @@
+.PHONY: clean
+
 simple.exe: main.o foo.o
 	gcc -o simple.exe main.o foo.o
 
