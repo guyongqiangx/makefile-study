@@ -1,8 +1,19 @@
 .PHONY: clean
 
-all: first second third
-	@echo "\$$@=$@"
-	@echo "$$^=$^"
-	@echo "$$<=$<"
+CC=gcc
+RM=rm
 
-first second third:
+EXE=simple.exe
+OBJS=main.o foo.o
+
+$(EXE):$(OBJS)
+	$(CC) -o $@ $^
+
+main.o: main.c
+	$(CC) -o $@ -c $^
+
+foo.o: foo.c
+	$(CC) -o $@ -c $^
+
+clean:
+	$(RM) $(EXE) $(OBJS)
