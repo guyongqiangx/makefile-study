@@ -1,12 +1,9 @@
 .PHONY: all
 
-x=foo
-y=$(x) b
-x=later
+foo=x
+foo?=y
 
-xx:=foo
-yy:=$(xx) b
-xx:=later
+bar?=y
 
 all:
-	@echo "x=$(y), xx=$(yy)"
+	@echo "foo=$(foo), bar=$(bar)"
