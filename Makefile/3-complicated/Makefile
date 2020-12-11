@@ -6,10 +6,13 @@ RMFLAGS = -fr
 
 cc = gcc
 
+DIR_OBJS = objs
+DIR_EXES = exes
+DIRS = $(DIR_OBJS) $(DIR_EXES)
 EXE = complicated.exe
-DIRS = objs exes
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
+OBJS := $(addprefix $(DIR_OBJS)/, $(OBJS))
 
 all: $(DIRS) $(EXE)
 
@@ -19,8 +22,8 @@ $(DIRS):
 $(EXE): $(OBJS)
 	$(CC) -o $@ $^
 
-%.o: %.c
+$(DIR_OBJS)/%.o: %.c
 	$(CC) -o $@ -c $^
 
 clean:
-	$(RM) $(RMFLAGS) $(DIRS) $(EXE) $(OBJS)
+	$(RM) $(RMFLAGS) $(DIRS) $(EXE)
