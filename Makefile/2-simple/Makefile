@@ -1,7 +1,8 @@
 .PHONY: all
 
-mixed = foo.c bar.c main.o
-objects := $(patsubst %.c, %.o, $(mixed))
+original = foo.c          bar.c
+stripped := $(strip $(original))
 
 all:
-	@echo $(objects)
+	@echo "original = $(original)"
+	@echo "stripped = $(stripped)"
