@@ -1,7 +1,7 @@
 .PHONY: all
 
-without_dir = foo.c bar.c main.o
-with_dir := $(addprefix objs/,$(without_dir))
+sources = foo.c bar.c baz.s ugh.h
+sources := $(filter %.c %.s, $(sources))
 
 all:
-	@echo $(with_dir)
+	@echo $(sources)
