@@ -1,7 +1,7 @@
 .PHONY: all
 
-sources = foo.c bar.c baz.s ugh.h
-sources := $(filter %.c %.s, $(sources))
+objects = main1.o foo.o main2.o bar.o
+result = $(filter-out main%.o, $(objects))
 
 all:
-	@echo $(sources)
+	@echo $(result)
