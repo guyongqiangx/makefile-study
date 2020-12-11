@@ -1,9 +1,7 @@
 .PHONY: all
 
-foo=x
-foo?=y
-
-bar?=y
+objects=main.o foo.o bar.o utils.o
+objects:=$(objects) another.o
 
 all:
-	@echo "foo=$(foo), bar=$(bar)"
+	@echo $(objects)
