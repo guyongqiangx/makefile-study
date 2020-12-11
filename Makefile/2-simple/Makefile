@@ -1,19 +1,7 @@
 .PHONY: all
 
-cc = gcc
-RM = rm
+without_dir = foo.c bar.c main.o
+with_dir := $(addprefix objs/,$(without_dir))
 
-EXE = simple.exe
-SRCS = $(wildcard *.c)
-OBJS = $(patsubst %.c,%.o,$(SRCS))
-
-all: $(EXE)
-
-$(EXE): $(OBJS)
-	$(CC) -o $@ $^
-
-%.o: %.c
-	$(CC) -o $@ -c $^
-
-clean:
-	$(RM) $(EXE) $(OBJS)
+all:
+	@echo $(with_dir)
