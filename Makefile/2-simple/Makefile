@@ -1,7 +1,6 @@
 .PHONY: all
 
-foo = a.o b.o c.o
-bar := $(foo:.o=.c)
+override foo = x
 
 all:
-	@echo "bar = $(bar)"
+	@echo "foo = $(foo)"
