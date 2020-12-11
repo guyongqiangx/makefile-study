@@ -1,13 +1,19 @@
 .PHONY: clean
 
-simple.exe: main.o foo.o
-	gcc -o simple.exe main.o foo.o
+CC=gcc
+RM=rm
+
+EXE=simple.exe
+OBJS=main.o foo.o
+
+$(EXE):$(OBJS)
+	$(CC) -o $(EXE) $(OBJS)
 
 main.o: main.c
-	gcc -o main.o -c main.c
+	$(CC) -o main.o -c main.c
 
 foo.o: foo.c
-	gcc -o foo.o -c foo.c
+	$(CC) -o foo.o -c foo.c
 
 clean:
-	rm simple.exe main.o foo.o
+	$(RM) $(EXE) $(OBJS) 
