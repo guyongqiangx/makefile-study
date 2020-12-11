@@ -1,7 +1,7 @@
 .PHONY: all
 
-objects = main1.o foo.o main2.o bar.o
-result = $(filter-out main%.o, $(objects))
+mixed = foo.c bar.c main.o
+objects := $(patsubst %.c, %.o, $(mixed))
 
 all:
-	@echo $(result)
+	@echo $(objects)
