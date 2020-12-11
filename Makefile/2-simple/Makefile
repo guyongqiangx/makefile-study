@@ -1,5 +1,8 @@
-.PHONY: all clean
+.PHONY: all
 
-all clean:
-	@echo "\$$@=$@"
-	@echo "MAKECMDGOALS=$(MAKECMDGOALS)"
+foo=$(bar)
+bar=$(ugh)
+ugh=Huh?
+
+all:
+	@echo $(foo)
