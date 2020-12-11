@@ -1,6 +1,18 @@
 .PHONY: all
 
-override foo = x
+cc = gcc
+RM = rm
 
-all:
-	@echo "foo = $(foo)"
+EXE = simple.exe
+OBJS = main.o foo.o
+
+all: $(EXE)
+
+$(EXE): $(OBJS)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) -o $@ -c $^
+
+clean:
+	$(RM) $(EXE) $(OBJS)
