@@ -23,8 +23,8 @@ $(DIRS):
 $(EXE): $(OBJS)
 	$(CC) -o $@ $^
 
-$(DIR_OBJS)/%.o: %.c
-	$(CC) -o $@ -c $^
+$(DIR_OBJS)/%.o: %.c foo.h
+	$(CC) -o $@ -c $<
 
 clean:
 	$(RM) $(RMFLAGS) $(DIRS)
