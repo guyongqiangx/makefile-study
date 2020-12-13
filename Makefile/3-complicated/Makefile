@@ -31,9 +31,12 @@ $(EXE): $(DIR_EXES) $(OBJS)
 $(DIR_OBJS)/%.o: $(DIR_OBJS) %.c
 	$(CC) -o $@ -c $(filter %.c, $^)
 
-$(DIR_DEPS)/%.dep: $(DIR_DEPS) %.c
+$(DIR_DEPS)/%.dep: %.c
 	@echo "Making $@..."
 	@set -e; \
+	if [ ! -e $(DIR_DEPS) ]; then \
+		$(MKDIR) $(DIR_DEPS); \
+	fi; \
 	$(RM) $(RMFLAGS) $@.tmp; \
 	$(CC) -E -MM $(filter %.c, $^) > $@.tmp; \
 	sed 's,\(.*\)\.o[ :]*,objs/\1.o: ,g' < $@.tmp > $@; \
