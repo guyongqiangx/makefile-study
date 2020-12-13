@@ -1,6 +1,6 @@
 .PHONY: all
 
 all:
-	@mkdir test
-	@cd test
-	@mkdir subtest
+	@mkdir test; \
+	cd test; \
+	mkdir subtest
