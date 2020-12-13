@@ -18,24 +18,24 @@ OBJS := $(addprefix $(DIR_OBJS)/, $(OBJS))
 DEPS = $(SRCS:.c=.dep)
 DEPS := $(addprefix $(DIR_DEPS)/, $(DEPS))
 
-all: $(DIRS) $(DEPS) $(EXE)
+all: $(EXE)
 
-include $(DEPS)
+-include $(DEPS)
 
 $(DIRS):
 	$(MKDIR) $@
 
-$(EXE): $(OBJS)
-	$(CC) -o $@ $^
+$(EXE): $(DIR_EXES) $(OBJS)
+	$(CC) -o $@ $(filter %.o, $^)
 
-$(DIR_OBJS)/%.o: %.c
-	$(CC) -o $@ -c $^
+$(DIR_OBJS)/%.o: $(DIR_OBJS) %.c
+	$(CC) -o $@ -c $(filter %.c, $^)
 
-$(DIR_DEPS)/%.dep: %.c
+$(DIR_DEPS)/%.dep: $(DIR_DEPS) %.c
 	@echo "Making $@..."
 	@set -e; \
 	$(RM) $(RMFLAGS) $@.tmp; \
-	$(CC) -E -MM $^ > $@.tmp; \
+	$(CC) -E -MM $(filter %.c, $^) > $@.tmp; \
 	sed 's,\(.*\)\.o[ :]*,objs/\1.o: ,g' < $@.tmp > $@; \
 	$(RM) $(RMFLAGS) $@.tmp
 
