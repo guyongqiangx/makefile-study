@@ -1,6 +1,5 @@
 #ifndef __DEFINE_H
 #define __DEFINE_H
-
-#define HELLO "Hello"
+#include "other.h"
 
 #endif
