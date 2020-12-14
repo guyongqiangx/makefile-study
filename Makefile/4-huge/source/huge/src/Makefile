@@ -1,5 +1,5 @@
-EXE =
+EXE = huge.exe
 
-LIB = libfoo.a
+LIB =
 
 include $(ROOT)/build/make.rule
