@@ -1,15 +1,13 @@
 .PHONY: all
 
-sharp = square
-desk = square
-table = circle
+foo = defined
 
-ifeq ($(sharp), $(desk))
-result1 = "desk == sharp"
+ifdef foo
+result1 = "foo is defined"
 endif
 
-ifneq "$(table)" 'square'
-result2 = "table != square"
+ifndef bar
+result2 = "bar is not defined"
 endif
 
 all:
