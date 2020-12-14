@@ -39,7 +39,7 @@ $(DIR_DEPS)/%.dep: %.c
 	fi; \
 	$(RM) $(RMFLAGS) $@.tmp; \
 	$(CC) -E -MM $(filter %.c, $^) > $@.tmp; \
-	sed 's,\(.*\)\.o[ :]*,objs/\1.o: ,g' < $@.tmp > $@; \
+	sed 's,\(.*\)\.o[ :]*,objs/\1.o $@: ,g' < $@.tmp > $@; \
 	$(RM) $(RMFLAGS) $@.tmp
 
 clean:
