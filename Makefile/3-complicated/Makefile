@@ -25,10 +25,18 @@ all: $(EXE)
 $(DIRS):
 	$(MKDIR) $@
 
-$(EXE): $(DIR_EXES) $(OBJS)
+$(EXE): $(OBJS)
+	@set -e; \
+	if [ ! -e $(DIR_EXES) ]; then \
+		$(MKDIR) $(DIR_EXES); \
+	fi;
 	$(CC) -o $@ $(filter %.o, $^)
 
-$(DIR_OBJS)/%.o: $(DIR_OBJS) %.c
+$(DIR_OBJS)/%.o: %.c
+	@set -e; \
+	if [ ! -e $(DIR_OBJS) ]; then \
+		$(MKDIR) $(DIR_OBJS); \
+	fi;
 	$(CC) -o $@ -c $(filter %.c, $^)
 
 $(DIR_DEPS)/%.dep: %.c
