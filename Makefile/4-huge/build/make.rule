@@ -40,7 +40,7 @@ all: $(LIB)
 endif
 
 ifneq ($(MAKECMDGOALS), clean)
--include $(DEPS)
+include $(DEPS)
 endif
 
 $(DIRS):
