@@ -48,11 +48,16 @@ INC_DIRS := $(strip $(INC_DIRS))
 INC_DIRS := $(addprefix -I, $(INC_DIRS))
 endif
 
+ifneq ($(LINK_LIBS),"")
+LINK_LIBS := $(strip $(LINK_LIBS))
+LINK_LIBS := $(addprefix -l, $(LINK_LIBS))
+endif
+
 $(DIRS):
 	$(MKDIR) $@
 
 $(EXE): $(DIR_EXES) $(OBJS)
-	$(CC) -o $@ $(filter %.o, $^)
+	$(CC) -L$(DIR_LIBS) -o $@ $(filter %.o, $^) $(LINK_LIBS)
 
 $(LIB): $(DIR_LIBS) $(OBJS)
 	$(AR) $(ARFLAGS) $@ $(filter %.o, $^)
