@@ -43,6 +43,11 @@ ifneq ($(MAKECMDGOALS), clean)
 include $(DEPS)
 endif
 
+ifneq ($(INC_DIRS),"")
+INC_DIRS := $(strip $(INC_DIRS))
+INC_DIRS := $(addprefix -I, $(INC_DIRS))
+endif
+
 $(DIRS):
 	$(MKDIR) $@
 
@@ -53,13 +58,13 @@ $(LIB): $(DIR_LIBS) $(OBJS)
 	$(AR) $(ARFLAGS) $@ $(filter %.o, $^)
 
 $(DIR_OBJS)/%.o: $(DIR_OBJS) %.c
-	$(CC) -o $@ -c $(filter %.c, $^)
+	$(CC) $(INC_DIRS) -o $@ -c $(filter %.c, $^)
 
 $(DIR_DEPS)/%.dep: $(DIR_DEPS) %.c
 	@set -e; \
 	echo "Making $@..."; \
 	$(RM) $(RMFLAGS) $@.tmp; \
-	$(CC) -E -MM $(filter %.c, $^) > $@.tmp; \
+	$(CC) $(INC_DIRS) -E -MM $(filter %.c, $^) > $@.tmp; \
 	sed 's,\(.*\)\.o[ :]*,objs/\1.o $@: ,g' < $@.tmp > $@; \
 	$(RM) $(RMFLAGS) $@.tmp
 
