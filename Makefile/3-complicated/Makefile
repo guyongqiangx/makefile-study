@@ -34,10 +34,18 @@ $(DIR_OBJS)/%.o: $(DIR_OBJS) %.c
 $(DIR_DEPS)/%.dep: $(DIR_DEPS) %.c
 	@echo "Making $@..."
 	@set -e; \
+	echo "------>"; \
+	stat --printf="  %y\t%n\n" $(DIR_DEPS); \
 	$(RM) $(RMFLAGS) $@.tmp; \
 	$(CC) -E -MM $(filter %.c, $^) > $@.tmp; \
 	sed 's,\(.*\)\.o[ :]*,objs/\1.o: ,g' < $@.tmp > $@; \
-	$(RM) $(RMFLAGS) $@.tmp
+	$(RM) $(RMFLAGS) $@.tmp; \
+	echo "+++++++"; \
+	stat --printf="  %y\t%n\n" $(DIR_DEPS); \
+	stat --printf="  %y\t%n\n" $(DIR_DEPS)/*.dep; \
+	echo "<------"; \
+	sleep 2;
+
 
 clean:
 	$(RM) $(RMFLAGS) $(DIRS)

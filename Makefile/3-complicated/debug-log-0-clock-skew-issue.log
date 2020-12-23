@@ -1,0 +1,156 @@
+makefile-study/Makefile/3-complicated$ make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  File 'deps/main.dep' does not exist.
+    File 'deps' does not exist.
+   Must remake target 'deps'.
+mkdir deps
+   Successfully remade target file 'deps'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 19:52:20.374682489 +0800   deps
++++++++
+  2020-12-23 19:52:20.390682454 +0800   deps
+  2020-12-23 19:52:20.390682454 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/main.dep'.
+  File 'deps/foo.dep' does not exist.
+ Must remake target 'deps/foo.dep'.
+Making deps/foo.dep...
+------>
+  2020-12-23 19:52:20.390682454 +0800   deps
++++++++
+  2020-12-23 19:52:22.414677963 +0800   deps
+  2020-12-23 19:52:22.414677963 +0800   deps/foo.dep
+  2020-12-23 19:52:20.390682454 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/foo.dep'.
+Re-executing[1]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/main.dep'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 19:52:22.414677963 +0800   deps
++++++++
+  2020-12-23 19:52:24.438673484 +0800   deps
+  2020-12-23 19:52:22.414677963 +0800   deps/foo.dep
+  2020-12-23 19:52:24.438673484 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/main.dep'.
+Re-executing[2]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/foo.dep'.
+ Must remake target 'deps/foo.dep'.
+Making deps/foo.dep...
+------>
+  2020-12-23 19:52:24.438673484 +0800   deps
++++++++
+  2020-12-23 19:52:26.466669010 +0800   deps
+  2020-12-23 19:52:26.466669010 +0800   deps/foo.dep
+  2020-12-23 19:52:24.438673484 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/foo.dep'.
+Re-executing[3]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/main.dep'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 19:52:26.466669010 +0800   deps
++++++++
+  2020-12-23 19:52:28.490664556 +0800   deps
+  2020-12-23 19:52:26.466669010 +0800   deps/foo.dep
+  2020-12-23 19:52:28.490664556 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/main.dep'.
+Re-executing[4]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/foo.dep'.
+ Must remake target 'deps/foo.dep'.
+Making deps/foo.dep...
+------>
+  2020-12-23 19:52:28.490664556 +0800   deps
++++++++
+  2020-12-23 19:52:30.518660105 +0800   deps
+  2020-12-23 19:52:30.518660105 +0800   deps/foo.dep
+  2020-12-23 19:52:28.490664556 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/foo.dep'.
+Re-executing[5]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/main.dep'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 19:52:30.518660105 +0800   deps
++++++++
+  2020-12-23 19:52:32.542655674 +0800   deps
+  2020-12-23 19:52:30.518660105 +0800   deps/foo.dep
+  2020-12-23 19:52:32.538655683 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/main.dep'.
+Re-executing[6]: make --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  Prerequisite 'deps' is newer than target 'deps/main.dep'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 19:52:32.542655674 +0800   deps
++++++++
+  2020-12-23 19:52:34.562651265 +0800   deps
+  2020-12-23 19:52:30.518660105 +0800   deps/foo.dep
+  2020-12-23 19:52:34.562651265 +0800   deps/main.dep
+<------
+^Cmake: *** Deleting file 'deps/main.dep'
+
+makefile-study/Makefile/3-complicated$ 
