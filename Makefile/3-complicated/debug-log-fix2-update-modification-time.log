@@ -1,0 +1,75 @@
+makefile-study/Makefile/3-complicated$ make -f Makefile.Fix2 --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+  File 'deps/main.dep' does not exist.
+    File 'deps' does not exist.
+   Must remake target 'deps'.
+mkdir deps
+   Successfully remade target file 'deps'.
+ Must remake target 'deps/main.dep'.
+Making deps/main.dep...
+------>
+  2020-12-23 20:09:16.961289540 +0800   deps
++++++++
+  2020-12-23 20:09:16.977289520 +0800   deps
+  2020-12-23 20:09:16.977289520 +0800   deps/main.dep
++++++++
+  2020-12-23 20:09:16.977289520 +0800   deps
+  2020-12-23 20:09:16.985289511 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/main.dep'.
+  File 'deps/foo.dep' does not exist.
+ Must remake target 'deps/foo.dep'.
+Making deps/foo.dep...
+------>
+  2020-12-23 20:09:16.977289520 +0800   deps
++++++++
+  2020-12-23 20:09:19.009287241 +0800   deps
+  2020-12-23 20:09:19.005287245 +0800   deps/foo.dep
+  2020-12-23 20:09:16.985289511 +0800   deps/main.dep
++++++++
+  2020-12-23 20:09:19.009287241 +0800   deps
+  2020-12-23 20:09:19.013287236 +0800   deps/foo.dep
+  2020-12-23 20:09:19.013287236 +0800   deps/main.dep
+<------
+ Successfully remade target file 'deps/foo.dep'.
+Re-executing[1]: make -f Makefile.Fix2 --debug=m
+GNU Make 4.1
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Updating makefiles....
+Updating goal targets....
+ File 'all' does not exist.
+   File 'exes/complicated.exe' does not exist.
+     File 'exes' does not exist.
+    Must remake target 'exes'.
+mkdir exes
+    Successfully remade target file 'exes'.
+     File 'objs/foo.o' does not exist.
+       File 'objs' does not exist.
+      Must remake target 'objs'.
+mkdir objs
+      Successfully remade target file 'objs'.
+    Must remake target 'objs/foo.o'.
+cc -o objs/foo.o -c foo.c
+    Successfully remade target file 'objs/foo.o'.
+     File 'objs/main.o' does not exist.
+    Must remake target 'objs/main.o'.
+cc -o objs/main.o -c main.c
+    Successfully remade target file 'objs/main.o'.
+  Must remake target 'exes/complicated.exe'.
+cc -o exes/complicated.exe objs/foo.o objs/main.o
+  Successfully remade target file 'exes/complicated.exe'.
+Must remake target 'all'.
+Successfully remade target file 'all'.
+makefile-study/Makefile/3-complicated$ 
